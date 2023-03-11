@@ -5,6 +5,7 @@ public class PersonBuilder {
     protected String surname;
     protected int age;
     protected String address;
+    protected int dateGiveBirth;
 
     public PersonBuilder setName(String name) throws IllegalArgumentException {
         if (name == null || name.isEmpty()) {
@@ -33,12 +34,16 @@ public class PersonBuilder {
         this.address = address;
         return this;
     }
+    public PersonBuilder setDateGiveBirth(int dateGiveBirth){
+        this.dateGiveBirth = dateGiveBirth;
+        return this;
+    }
 
     public Person build() throws IllegalArgumentException {
 
         if (name == null || surname == null) {
             throw new IllegalStateException("Не хватает обязательных полей");
         }
-        return new Person(name, surname, age, address);
+        return new Person(name, surname, age, address,dateGiveBirth);
     }
 }

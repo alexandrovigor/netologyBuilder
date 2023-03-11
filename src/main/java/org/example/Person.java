@@ -8,6 +8,7 @@ public class Person {
     protected final String surname;
     protected int age;
     protected String address;
+    protected int dateGiveBirth;
 
 
     public Person(String name, String surname) {
@@ -15,11 +16,13 @@ public class Person {
         this.surname = surname;
     }
 
-    public Person(String name, String surname, int age, String address) {
+    public Person(String name, String surname, int age, String address,int dateGiveBirth) {
         this.name = name;
         this.surname = surname;
         this.age = age;
         this.address = address;
+        this.dateGiveBirth = dateGiveBirth;
+
     }
 
     public boolean hasAge() {
@@ -54,12 +57,13 @@ public class Person {
     public String getSurname() {
         return surname;
     }
+    public int getDateGiveBirth(){ return dateGiveBirth;}
 
     public PersonBuilder newChildBuilder() {
 
         return new PersonBuilder()
                 .setSurname(surname)
-                .setAge(age-25)
+                .setAge(age-dateGiveBirth)
                 .setAddress(address);
     }
     @Override
